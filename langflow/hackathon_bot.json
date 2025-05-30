@@ -142,6 +142,33 @@
         "sourceHandle": "{œdataTypeœ:œOpenAIModelœ,œidœ:œOpenAIModel-nWChhœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}",
         "target": "ChatOutput-r1qlO",
         "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-r1qlOœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œstrœ}"
+      },
+      {
+        "animated": false,
+        "data": {
+          "sourceHandle": {
+            "dataType": "Memory",
+            "id": "Memory-ib8Qq",
+            "name": "messages_text",
+            "output_types": [
+              "Message"
+            ]
+          },
+          "targetHandle": {
+            "fieldName": "memory",
+            "id": "Prompt-EoXBp",
+            "inputTypes": [
+              "Message"
+            ],
+            "type": "str"
+          }
+        },
+        "id": "xy-edge__Memory-ib8Qq{œdataTypeœ:œMemoryœ,œidœ:œMemory-ib8Qqœ,œnameœ:œmessages_textœ,œoutput_typesœ:[œMessageœ]}-Prompt-EoXBp{œfieldNameœ:œmemoryœ,œidœ:œPrompt-EoXBpœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "selected": false,
+        "source": "Memory-ib8Qq",
+        "sourceHandle": "{œdataTypeœ:œMemoryœ,œidœ:œMemory-ib8Qqœ,œnameœ:œmessages_textœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Prompt-EoXBp",
+        "targetHandle": "{œfieldNameœ:œmemoryœ,œidœ:œPrompt-EoXBpœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}"
       }
     ],
     "nodes": [
@@ -781,7 +808,6 @@
             "is_input": null,
             "is_output": null,
             "legacy": false,
-            "lf_version": "1.3.3",
             "metadata": {},
             "minimized": false,
             "name": "",
@@ -1581,7 +1607,7 @@
           "x": 3538.201838452096,
           "y": 695.8159287414187
         },
-        "selected": true,
+        "selected": false,
         "type": "genericNode"
       },
       {
@@ -1980,9 +2006,9 @@
       }
     ],
     "viewport": {
-      "x": -2345.8139378152528,
-      "y": -181.7536300637354,
-      "zoom": 0.8849333119100475
+      "x": -1102.5416104045007,
+      "y": -17.46887712487876,
+      "zoom": 0.5977609854663833
     }
   },
   "description": "A hackathon bot that suggests ideas for projects and can be contactable over the phone.",
