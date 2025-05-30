@@ -1,6 +1,6 @@
 import { env } from "node:process";
 
-export const tunnelUrl = env.TUNNEL_URL.replace(/^https?:\/\//, "");
+export const tunnelUrl = env.TUNNEL_DOMAIN.replace(/^https?:\/\//, "");
 
 export const port = env.PORT || "3000";
 

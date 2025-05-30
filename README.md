@@ -75,11 +75,11 @@ To connect Twilio to your locally running application, you will need a tunnel li
 
 This application runs on `localhost:3000` by default, or whichever `PORT` number you set in `.env`.
 
-Set up your tunnel to point to the locally running application and enter the tunnel URL in `.env` as `TUNNEL_URL`.
+Set up your tunnel to point to the locally running application and enter the tunnel domain in `.env` as `TUNNEL_DOMAIN`.
 
 ### Twilio
 
-You will need to configure your voice capable phone number to connect to the application. Under the voice configuration settings of the phone number, configure it with a webhook. When a call comes in the webhook URL should be a POST request to `https://${TUNNEL_URL}/voice`.
+You will need to configure your voice capable phone number to connect to the application. Under the voice configuration settings of the phone number, configure it with a webhook. When a call comes in the webhook URL should be a POST request to `https://${TUNNEL_DOMAIN}/voice`.
 
 ## Run the application
 
