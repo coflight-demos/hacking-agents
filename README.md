@@ -1,3 +1,24 @@
+
+
+Smart Consumer Phone agent - 
+Usually we have service provider bots talking to us and consumer being human. 
+Sometime one has to hold for long time and suddenly the other side starts speaking and then again puts on hold. 
+
+So this is an attenpt to have a bot for consumer as well !
+
+This application use Langflow and prompt engineering and Twilio ConversationRelay and Mistral AI model
+
+
+
+
+
+
+
+
+
+
+
+
 # Twilio Voice and Langflow
 
 This is an example application that lets you respond to a Twilio Voice call using [Twilio ConversationRelay](https://www.twilio.com/docs/voice/twiml/connect/conversationrelay) and [Langflow](https://www.langflow.org/).
