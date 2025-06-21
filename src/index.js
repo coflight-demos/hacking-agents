@@ -22,10 +22,11 @@ fastify.post("/voice", (_request, reply) => {
   const connect = twiml.connect();
   connect.conversationRelay({
     url: `wss://${tunnelUrl}/ws`,
-    welcomeGreeting: "Ahoy! How can I help?",
+    welcomeGreeting: "",
   });
   reply.type("text/xml").send(twiml.toString());
 });
+var history = "";
 
 fastify.register(async function (fastify) {
   fastify.get("/ws", { websocket: true }, (socket, request) => {
@@ -39,13 +40,19 @@ fastify.register(async function (fastify) {
           break;
         case "prompt": {
           fastify.log.info(`Processing prompt: ${message.voicePrompt}`);
+          history += "(customer service):" + message.voicePrompt + "\n";
           if (!langflowStreaming) {
             try {
-              const response = await flow.run(message.voicePrompt, {
+
+              
+
+              const response = await flow.run(history, {
                 session_id: socket.callSid,
               });
+              //sendResponse(socket, "whatever a day");
               sendResponse(socket, response.chatOutputText());
               fastify.log.info(`Response: ${response.chatOutputText()}`);
+              history += "(You):" + response.chatOutputText() + "\n";
             } catch (error) {
               fastify.log.error(`Error processing prompt: ${error.message}`);
               sendErrorAndEnd(
@@ -54,8 +61,9 @@ fastify.register(async function (fastify) {
               );
             }
           } else {
+            
             try {
-              const response = await flow.stream(message.voicePrompt, {
+              const response = await flow.stream(history, {
                 session_id: socket.callSid,
               });
               let responseText = "";
@@ -66,6 +74,8 @@ fastify.register(async function (fastify) {
                   responseText += chunk.data.chunk;
                 } else if (chunk.event === "end") {
                   fastify.log.info(`Response: ${responseText}`);
+                  history += "(You):" + response.chatOutputText() + "\n";
+
                   sendResponse(socket, "", true);
                 }
               }
